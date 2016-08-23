@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,13 +16,34 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchBackground" translatesAutoresizingMaskIntoConstraints="NO" id="dCg-72-rnj">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wellcome to chatApp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OK6-00-Z0k">
+                                <rect key="frame" x="218" y="155" width="164" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.36228006620476039" green="0.29415833002446756" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OK6-00-Z0k" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="135" id="oUG-qm-MKT"/>
+                            <constraint firstItem="dCg-72-rnj" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="ow9-mJ-X2G"/>
+                            <constraint firstItem="dCg-72-rnj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ud6-H3-R9Y"/>
+                            <constraint firstItem="dCg-72-rnj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="vOa-Q8-htz"/>
+                            <constraint firstItem="OK6-00-Z0k" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="wgf-i8-V8G"/>
+                            <constraint firstItem="dCg-72-rnj" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="yA7-S3-aSp"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="299" y="458"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="launchBackground" width="736" height="1308"/>
+    </resources>
 </document>
