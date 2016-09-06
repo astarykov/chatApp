@@ -13,11 +13,11 @@ class LoginController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //loginButton.setTitle(loginMethodSwitcher.titleForSegmentAtIndex(loginMethodSwitcher.selectedSegmentIndex), forState: .Normal)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     //Outlets here
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginMethodSwitcher: UISegmentedControl!
@@ -26,7 +26,6 @@ class LoginController: UIViewController {
               weak var userField: UITextField?
     
     @IBAction func loginHandler(sender: AnyObject) {
-        //print(emailField.text, passwordField.text, passwordField.text, userField!.text)
 
         guard let email = emailField.text, password = passwordField.text
             else {
@@ -37,6 +36,8 @@ class LoginController: UIViewController {
         func signIn() {
             FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user: FIRUser?, err) in
                 if err != nil {
+                    self.errorLabel.textColor = UIColor.redColor()
+                    self.errorLabel.text = err?.localizedDescription
                     print("Signin in failed")
                     return
                 }
@@ -49,6 +50,8 @@ class LoginController: UIViewController {
         func signUp() {
             FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { (user: FIRUser?, error) in
                 if error != nil {
+                    self.errorLabel.textColor = UIColor.redColor()
+                    self.errorLabel.text = error?.localizedDescription
                     print(error)
                     return
                 }
@@ -99,7 +102,6 @@ class LoginController: UIViewController {
         
         switch loginMethodSwitcher.selectedSegmentIndex {
         case 0:
-            print("")
             loginButton.setTitle(loginMethodSwitcher.titleForSegmentAtIndex(loginMethodSwitcher.selectedSegmentIndex), forState: .Normal)
             emailFieldTopConstraint.constant = 15
             view.viewWithTag(0100)?.removeFromSuperview()
